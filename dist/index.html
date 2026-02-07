@@ -1,0 +1,118 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>QR Code Generator</title>
+    <style>
+      body {
+        text-align: center;
+        margin-top: 50px;
+      }
+      table {
+        margin: auto;
+      }
+      #canvas {
+        margin-top: 20px;
+      }
+      /* Dark mode styles */
+      @media (prefers-color-scheme: dark) {
+        body {
+          background-color: #111;
+          color: #fff;
+        }
+        input, select, textarea, button {
+          background-color: #222;
+          color: #fff;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <p>
+      <h1>QR Code Generator</h1>
+    </p>
+    <table>
+      <tbody>
+        <tr>
+          <td>
+            Text
+          </td>
+          <td>
+            <textarea id="text" rows="4" cols="50" placeholder="Enter text for QR code"></textarea>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <label for="errorCorrection">Error Correction:</label>
+          </td>
+          <td>
+            <select id="errorCorrection">
+              <option value="L">Low (7%)</option>
+              <option value="M" selected>Medium (15%)</option>
+              <option value="Q">Quartile (25%)</option>
+              <option value="H">High (30%)</option>
+            </select>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <label for="maskPattern">Mask Pattern:</label>
+          </td>
+          <td>
+            <select id="maskPattern">
+              <option value="NaN" selected>Auto</option>
+              <option value="0">Mask Pattern 0</option>
+              <option value="1">Mask Pattern 1</option>
+              <option value="2">Mask Pattern 2</option>
+              <option value="3">Mask Pattern 3</option>
+              <option value="4">Mask Pattern 4</option>
+              <option value="5">Mask Pattern 5</option>
+              <option value="6">Mask Pattern 6</option>
+              <option value="7">Mask Pattern 7</option>
+            </select>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <label for="margin">Margin:</label>
+          </td>
+          <td>
+            <input type="number" id="margin" value="4" />
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <label for="scale">Scale:</label>
+          </td>
+          <td>
+            <input type="number" id="scale" value="4" />
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <label for="fgColor">Fg Color:</label>
+          </td>
+          <td>
+            <input type="color" id="fgColor" value="#000000" />
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <label for="bgColor">Bg Color:</label>
+          </td>
+          <td>
+            <input type="color" id="bgColor" value="#ffffff" />
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <button id="generate">Generate</button>
+    <button id="download" disabled>Download</button>
+
+    <p>
+      <canvas id="canvas"></canvas>
+    </p>
+    <script src="bundle.js"></script>
+  </body>
+</html>
